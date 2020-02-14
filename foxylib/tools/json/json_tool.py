@@ -54,7 +54,6 @@ class JsonTool:
     @classmethod
     def filepath2j(cls, filepath):
         logger = FoxylibLogger.func_level2logger(cls.filepath2j, logging.DEBUG)
-        logger.debug({"filepath":filepath})
 
         from foxylib.tools.file.file_tool import FileTool
         utf8 = FileTool.filepath2utf8(filepath)

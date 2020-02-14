@@ -28,11 +28,7 @@ class FileTool:
         return bytes
 
     @classmethod
-    def filepath2utf8(cls,
-                      filepath,
-                      encoding=None,
-                      f_open=None,
-                      ):
+    def filepath2utf8(cls, filepath, encoding=None, f_open=None, ):
         if f_open is None:
             if encoding is None: encoding = "utf-8"
             f_open = lambda x: codecs.open(x, "rb", encoding=encoding)
@@ -46,11 +42,7 @@ class FileTool:
         return s_dec
 
     @classmethod
-    def filepath2utf8_lines(cls,
-                            filepath,
-                      encoding=None,
-                      f_open=None,
-                      ):
+    def filepath2utf8_lines(cls, filepath, encoding=None, f_open=None, ):
         if f_open is None:
             if encoding is None: encoding = "utf-8"
             f_open = lambda x: codecs.open(x, "rb", encoding=encoding)
@@ -184,6 +176,7 @@ class DirToolkit:
     @classmethod
     def makedirs_if_empty(cls, dirpath):
         if not os.path.exists(dirpath): os.makedirs(dirpath)
+
 
 filepath2utf8 = FileTool.filepath2utf8
 filepath2utf8_lines = FileTool.filepath2utf8_lines
