@@ -108,6 +108,7 @@ class RegexTool:
     def rstr2wrapped(cls, rstr):
         return r"(?:{})".format(rstr)
 
+
 class MatchTool:
     @classmethod
     def i2m_right_before(cls, i, m_list):
@@ -173,12 +174,18 @@ class MatchTool:
         return t
 
     @classmethod
+    def match_list2span_list(cls, m_list):
+        if not m_list: return None
+
+        span_list = lmap(match2span, m_list)
+        return span_list
+
+    @classmethod
     def match_list_limit2span_best(cls, m_list, len_limit, f_matches2score,):
         if not m_list:
             return None
 
-
-        span_list_document = lmap(match2span, m_list)
+        span_list_document = cls.match_list2span_list(m_list)
         span_list_match = list(SpanTool.span_list_limit2span_of_span_longest_iter(span_list_document, len_limit))
         if not span_list_match:
             return None
@@ -188,6 +195,7 @@ class MatchTool:
                               key=lambda span_m: f_matches2score(list_span2sublist(m_list, span_m)))
         span_best_document = SpanTool.span_list_span2span_big(span_list_document, span_best_match)
         return span_best_document
+
 
 
 class RegexNodeTool:
@@ -297,7 +305,6 @@ class RegexNodeTool:
     def node2pattern(cls, node, *_, **__):
         rstr = cls.node2rstr(node, *_, **__)
         return re.compile(rstr)
-
 
     @classmethod
     def match_nodes2groupname_list(cls, m, cls_node_list):

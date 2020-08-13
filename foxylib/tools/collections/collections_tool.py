@@ -3,15 +3,14 @@ import operator
 import random
 from collections import OrderedDict, deque
 from functools import reduce, total_ordering, partial, wraps
-from operator import itemgetter as ig
-
-import numpy
-from future.utils import lmap, lfilter
 from itertools import chain, product, combinations, islice, count, groupby, repeat, starmap, tee, zip_longest, cycle, \
     filterfalse
-from nose.tools import assert_equal, assert_false, assert_is_not_none, assert_is_none
+from operator import itemgetter as ig
 
-from foxylib.tools.function.function_tool import funcs2piped, f_a2t, FunctionTool
+from future.utils import lmap, lfilter
+from nose.tools import assert_equal, assert_false, assert_is_not_none
+
+from foxylib.tools.function.function_tool import funcs2piped, f_a2t
 from foxylib.tools.log.logger_tool import FoxylibLogger, LoggerTool
 from foxylib.tools.native.native_tool import is_none, is_not_none
 from foxylib.tools.nose.nose_tool import assert_all_same_length
@@ -1115,11 +1114,6 @@ class LLToolkit:
         ll_children = [cls.ll_depths2lchained(x, depths_children) for x in ll]
 
         return lchain(*ll_children) if 0 in depths else ll_children
-
-
-    @classmethod
-    def transpose(cls, ll, axes):
-        return numpy.transpose(ll, axes).tolist()
 
 
 class AbsoluteOrder:
