@@ -7,14 +7,24 @@ from foxylib.version import __version__
 install_requires = [
     "future==0.17.1",
     "nose==1.3.7",
-    "Pillow==5.4.1",
-    "pyyaml==3.13",
+    "pyyaml==5.2",
     "python-dateutil==2.8.0",
-    "Jinja2==2.10",
+    "Jinja2==2.10.1",
     "ply==3.11",
-    "google-api-python-client==1.7.8",
-    "oauth2client==4.1.3",
-    "pytz==2018.9",
+
+    "uritemplate==3.0.0",
+
+    "pytz==2019.3",
+    "requests==2.22.0",
+    "elasticsearch==7.0.1",
+    "beautifulsoup4==4.7.1",
+    "frozendict==1.2",
+    "dill==0.3.0",
+    "pymongo==3.8.0",
+    "pytz==2019.3",
+    "iso3166==1.0",
+    "pytest==5.2.2",
+    "PyGithub==1.44.1",
 ]
 
 
