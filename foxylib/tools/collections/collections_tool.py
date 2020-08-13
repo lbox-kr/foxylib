@@ -1244,7 +1244,6 @@ llmap = LLToolkit.llmap
 llfilter = LLToolkit.llfilter
 llchain = LLToolkit.llchain
 ll_depths2lchained = LLToolkit.ll_depths2lchained
-transpose = LLToolkit.transpose
 
 iter_func2suffixed = IterTool.iter_func2suffixed
 
