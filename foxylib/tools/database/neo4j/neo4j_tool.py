@@ -23,3 +23,10 @@ class Neo4jTool:
         password = cls.env2password()
 
         return GraphDatabase.driver(host, auth=(username, password), encrypted=False)
+
+    @classmethod
+    def query2result(cls, driver, query):
+        with driver.session() as session:
+            result = session.run(query)
+        return result
+
