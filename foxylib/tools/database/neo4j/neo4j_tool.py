@@ -1,4 +1,5 @@
 import os
+from functools import lru_cache
 
 from neo4j import GraphDatabase
 
@@ -17,6 +18,7 @@ class Neo4jTool:
         return os.environ.get("NEO4J_PASSWORD")
 
     @classmethod
+    @lru_cache(maxsize=2)
     def env2driver(cls, ):
         host = cls.env2host()
         username = cls.env2username()
@@ -25,8 +27,8 @@ class Neo4jTool:
         return GraphDatabase.driver(host, auth=(username, password), encrypted=False)
 
     @classmethod
-    def query2result(cls, driver, query):
+    def query2result(cls, driver, query, **kargs):
         with driver.session() as session:
-            result = session.run(query)
+            result = session.run(query, kargs)
         return result
 
