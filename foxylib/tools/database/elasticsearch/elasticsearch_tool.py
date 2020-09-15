@@ -51,12 +51,10 @@ class ElasticsearchTool:
 
     @classmethod
     def index2create_or_skip(cls, es_client, es_index, body=None):
-        if cls.index2exists(es_client,es_index):
+        if cls.index2exists(es_client, es_index):
             return
 
         j_index = es_client.indices.create(index=es_index, body=body)
-
-
         return j_index
 
     @classmethod
@@ -116,9 +114,8 @@ class ElasticsearchTool:
 
     @classmethod
     def j_result2j_hit_src_singleton(cls, j_result):
-        return (cls.j_result2j_hit_singleton(j_result),
-                cls.j_result2j_source_singleton(j_result),
-                )
+        return (cls.j_result2j_hit_singleton(j_result), cls.j_result2j_source_singleton(j_result))
+
     @classmethod
     def j_hit2j_src(cls, j_hit):
         if not j_hit: return j_hit
@@ -138,8 +135,6 @@ class ElasticsearchTool:
     @classmethod
     def item_count2request_timeout_default(cls, item_count):
         return item_count*10
-
-
 
     @classmethod
     def es2j_hit_iter_scroll(cls, es_client, es_index, jq, scroll,):
@@ -176,14 +171,12 @@ class ElasticsearchTool:
         j_mapping = cls.fieldname_list2j_mapping_fielddata(fieldname)
         es_client.indices.put_mapping(index=index, body=j_mapping)
 
-
     @classmethod
     def aggrname2j_bucket_list(cls, j_result, aggrname):
         return jdown(j_result, ["aggregations",aggrname,"buckets"])
 
     @classmethod
     def j_hit2score(cls, j_hit): return j_hit["_score"]
-
 
     @classmethod
     def index_query2morpheme_list(cls, index, query, analyzer=None):
@@ -197,8 +190,6 @@ class ElasticsearchTool:
         j_result = client.indices.analyze(index, j)
         morpheme_list = lmap(lambda j: j["token"], j_result.get("tokens", []))
         return morpheme_list
-
-
 
 
 class ElasticSearchResultTool:
@@ -273,6 +264,8 @@ class BulkToolkit:
         }
   }
 }"""
+
+
 class ElasticsearchQuery:
     @classmethod
     def field_id(cls): return "_id"
