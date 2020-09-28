@@ -27,8 +27,8 @@ class Neo4jTool:
         return GraphDatabase.driver(host, auth=(username, password), encrypted=False)
 
     @classmethod
-    def query2result(cls, driver, query, **kargs):
-        session = driver.session()
-        return session.run(query, kargs)
-
+    def execute_query(cls, driver, query, **kargs):
+        with driver.session() as session:
+            session.run(query, kargs)
+        return None
 
