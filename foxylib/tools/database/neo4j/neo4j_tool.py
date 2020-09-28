@@ -28,7 +28,7 @@ class Neo4jTool:
 
     @classmethod
     def query2result(cls, driver, query, **kargs):
-        with driver.session() as session:
-            result = session.run(query, kargs)
-        return result
+        session = driver.session()
+        return session.run(query, kargs)
+
 
