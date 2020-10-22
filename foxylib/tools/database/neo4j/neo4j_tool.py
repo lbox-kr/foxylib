@@ -18,13 +18,18 @@ class Neo4jTool:
         return os.environ.get("NEO4J_PASSWORD")
 
     @classmethod
+    def env2database(cls, ):
+        return os.environ.get("NEO4J_DATABASE")
+
+    @classmethod
     @lru_cache(maxsize=2)
     def env2driver(cls, ):
         host = cls.env2host()
         username = cls.env2username()
         password = cls.env2password()
+        database = cls.env2database()
 
-        return GraphDatabase.driver(host, auth=(username, password), encrypted=False)
+        return GraphDatabase.driver(host, auth=(username, password), encrypted=False, database=database)
 
     @classmethod
     def execute_query(cls, driver, query, **kargs):
