@@ -9,7 +9,7 @@ install_requires = [
     "nose==1.3.7",
     "pyyaml==5.4.1",
     "python-dateutil==2.8.0",
-    "Jinja2==2.10.1",
+    "Jinja2==2.11.3",
     "ply==3.11",
 
     "uritemplate==3.0.0",
