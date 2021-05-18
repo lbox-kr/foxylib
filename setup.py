@@ -7,7 +7,7 @@ from foxylib.version import __version__
 install_requires = [
     "future==0.17.1",
     "nose==1.3.7",
-    "pyyaml==5.2",
+    "pyyaml==5.4.1",
     "python-dateutil==2.8.0",
     "Jinja2==2.10.1",
     "ply==3.11",
@@ -15,7 +15,7 @@ install_requires = [
     "uritemplate==3.0.0",
 
     "pytz==2019.3",
-    "requests==2.22.0",
+    "requests==2.25.1",
     "elasticsearch==7.0.1",
     "beautifulsoup4==4.7.1",
     "frozendict==1.2",
@@ -23,7 +23,7 @@ install_requires = [
     "pymongo==3.8.0",
     "pytz==2019.3",
     "iso3166==1.0",
-    "pytest==5.2.2",
+    "pytest==6.2.4",
     "PyGithub==1.44.1",
 ]
 
